@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using CleanArch.Api.Configurations;
 
 namespace CleanArch.Api
 {
@@ -44,7 +45,9 @@ namespace CleanArch.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "University Api", Version = "v1" });
             });
 
-            services.AddMediatR(typeof(Startup));            
+            services.AddMediatR(typeof(Startup));
+
+            services.RegisterAutomapper();
 
             RegisterServices(services);
         }
